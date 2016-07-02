@@ -1,7 +1,7 @@
 <div id="header" class="page-header" ng-controller="headerController">
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
-			<ul class="nav navbar-nav" *ngFor="#item of headerItems">
+			<ul class="nav navbar-nav" *ngFor="let item of headerItems">
 				<li *ngIf="item.showBtn" (click)="headerFunc($event, item.clickFunc)">
 					<a herf="#">{{item.text}}</a>
 				</li>

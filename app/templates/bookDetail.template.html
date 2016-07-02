@@ -19,7 +19,7 @@
 
 			<span *ngIf="bookData.volumeInfo.categories && bookData.volumeInfo.categories.length > 0">
 				<strong>Categories: </strong>
-				<span *ngFor="#category of bookData.volumeInfo.categories">
+				<span *ngFor="let category of bookData.volumeInfo.categories">
 					{{category}}{{last ? '' : ', '}}
 				</span><br />
 			</span>

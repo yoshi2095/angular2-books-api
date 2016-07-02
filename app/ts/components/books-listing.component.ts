@@ -69,8 +69,6 @@ export class BooksListing {
 		}
 	}
 
-	ngOnInit() { }
-
 	searchBooks($event: Event) {
 		this.model.searchQuery = this.model.searchQuery.trim();
 

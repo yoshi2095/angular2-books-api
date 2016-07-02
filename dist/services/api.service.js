@@ -15,7 +15,9 @@ var api = (function () {
         this.http = http;
     }
     api.prototype.getData = function (url) {
-        return this.http.get(url).map(function (response) { return response.json(); });
+        return this.http.get(url).map(function (response) {
+            return response.json();
+        });
     };
     api = __decorate([
         core_1.Injectable(), 

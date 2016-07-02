@@ -34,7 +34,6 @@ var AppHeader = (function () {
                 'showBtn': false
             }];
         router.events.subscribe(function (event) {
-            console.log(event);
             if (event.constructor.name === 'NavigationEnd') {
                 _this.onRouteChange(event.url);
             }

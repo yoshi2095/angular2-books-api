@@ -62,7 +62,6 @@ var BooksListing = (function () {
             };
         }
     };
-    BooksListing.prototype.ngOnInit = function () { };
     BooksListing.prototype.searchBooks = function ($event) {
         this.model.searchQuery = this.model.searchQuery.trim();
         this.utils.log('searchBooks, searchQuery: ', this.model.searchQuery, ', :searchLimit: ', this.model.searchLimit);

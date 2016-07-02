@@ -37,7 +37,6 @@ export class AppHeader {
 		}];
 
 		router.events.subscribe((event) => {
-			console.log(event);
 			if(event.constructor.name === 'NavigationEnd') {
 				this.onRouteChange(event.url);
 			}
