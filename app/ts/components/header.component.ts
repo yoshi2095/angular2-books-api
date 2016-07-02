@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-// import {LocationStrategy, HashLocationStrategy, APP_BASE_HREF} from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
 
 import {headerInterface} from '../helpers/app-interfaces'
@@ -76,7 +75,7 @@ export class AppHeader {
 	}
 
 	headerFunc($event: Event, funcName: string) {
-		console.log('headerFunc: ', funcName);
+		this.utils.log('headerFunc: ', funcName);
 		this[funcName]($event);
 	}
 

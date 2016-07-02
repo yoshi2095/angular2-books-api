@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-// import {LocationStrategy, HashLocationStrategy, APP_BASE_HREF} from '@angular/common';
 var router_1 = require('@angular/router');
 var settings_1 = require('../helpers/settings');
 var localStorage_service_1 = require('../services/localStorage.service');
@@ -69,7 +68,7 @@ var AppHeader = (function () {
         }
     };
     AppHeader.prototype.headerFunc = function ($event, funcName) {
-        console.log('headerFunc: ', funcName);
+        this.utils.log('headerFunc: ', funcName);
         this[funcName]($event);
     };
     AppHeader.prototype.goBack = function ($event) {
