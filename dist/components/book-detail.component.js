@@ -26,9 +26,7 @@ var BookDetail = (function () {
         var _this = this;
         this.showLoader = true;
         this.sub = this.route.params.subscribe(function (params) {
-            console.log('route params: ', params);
             var id = params['id'];
-            console.log('book id: ', id);
             _this.api.getData('https://www.googleapis.com/books/v1/volumes/' + id + '?projection=full').subscribe(function (data) { return _this.bookData = data; }, function (error) { return console.error('Error: ' + error); }, function () { return _this.showLoader = false; });
         });
     };

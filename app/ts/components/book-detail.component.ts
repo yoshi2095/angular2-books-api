@@ -28,10 +28,8 @@ export class BookDetail implements OnInit, OnDestroy {
 		this.showLoader = true;
 
 		this.sub = this.route.params.subscribe(params => {
-			console.log('route params: ', params);
 			let id = params['id'];
 
-			console.log('book id: ', id);
 			this.api.getData('https://www.googleapis.com/books/v1/volumes/' + id + '?projection=full').subscribe(
 				data => this.bookData = data,
 				error => console.error('Error: ' + error),

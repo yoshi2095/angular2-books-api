@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 // import {LocationStrategy, HashLocationStrategy, APP_BASE_HREF} from '@angular/common';
-// import { Router } from '@angular/router-deprecated';
+import { Router, NavigationEnd } from '@angular/router';
 
 import {headerInterface} from '../helpers/app-interfaces'
 import {_settings} from '../helpers/settings'
@@ -18,45 +18,61 @@ export class AppHeader {
 	imgUrl: string;
 	headerItems: headerInterface[] = [];
 
-	constructor(/*private router: Router,*/ private LS: LocalStorage, private utils: Utils) {
-		this.imgUrl = 'app/img/angularjs-logo.png';
-		this.headerItems = [{
-			'name': 'backBtn',
-			'clickFunc': 'goBack',
-			'text': 'Go back',
-			'showBtn': false
-		},
+	constructor(
+		private router: Router,
+		private LS: LocalStorage,
+		private utils: Utils
+	) {
+		this.headerItems = [
 			{
 				'name': 'resetBtn',
 				'clickFunc': 'resetApp',
 				'text': 'Reset app',
 				'showBtn': true
-			}];
+			}, {
+			'name': 'backBtn',
+			'clickFunc': 'goBack',
+			'text': 'Go back',
+			'showBtn': false
+		}];
 
-		// router.subscribe((val) => this.onRouteChange(val))
+		router.events.subscribe((event) => {
+			console.log(event);
+			if(event.constructor.name === 'NavigationEnd') {
+				this.onRouteChange(event.url);
+			}
+		});
 	}
 
 	onRouteChange(val: string) {
 		this.utils.log('headerChange: ', val);
 
-		let routeName = val.match(/[^?]*/i)[0];
+		let routeName = val.match(/\/(.*?)\//);
 
-		switch (routeName) {
-			case 'book':
-				for (var key in this.headerItems) {
-					if (this.headerItems[key].name === 'backBtn') {
-						this.headerItems[key].showBtn = true;
+		if(routeName) {
+			switch (routeName[0]) {
+				case '/bookdetail/':
+					for (var key in this.headerItems) {
+						if (this.headerItems[key].name === 'backBtn') {
+							this.headerItems[key].showBtn = true;
+						}
 					}
-				}
-				break;
+					break;
 
-			default:
-				for (var key in this.headerItems) {
-					if (this.headerItems[key].name === 'backBtn') {
-						this.headerItems[key].showBtn = false;
+				default:
+					for (var key in this.headerItems) {
+						if (this.headerItems[key].name === 'backBtn') {
+							this.headerItems[key].showBtn = false;
+						}
 					}
+					break;
+			}
+		} else {
+			for (var key in this.headerItems) {
+				if (this.headerItems[key].name === 'backBtn') {
+					this.headerItems[key].showBtn = false;
 				}
-				break;
+			}
 		}
 	}
 
@@ -67,12 +83,12 @@ export class AppHeader {
 
 	goBack($event: Event) {
 		this.utils.log('goBack');
-		// this.router.navigate(['./BooksListing']);
+		this.router.navigate(['/bookslisting']);
 	}
 
 	resetApp($event: Event) {
 		this.utils.log('resetApp');
 		this.LS.resetStorage();
-		// this.router.navigate(['./BooksListing']);
+		this.router.navigate(['/bookslisting']);
 	}
 }
