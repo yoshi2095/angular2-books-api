@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
-import {Http, HTTP_PROVIDERS} from '@angular/http';
-import { ROUTER_DIRECTIVES, RouterLink } from '@angular/router';
+import {Router, ROUTER_DIRECTIVES} from '@angular/router';
 
 import {AppHeader} from './header.component';
 import { _settings } from '../helpers/settings';
@@ -8,7 +7,7 @@ import { _settings } from '../helpers/settings';
 @Component({
 	selector: 'books-app',
 	templateUrl: _settings.buildPath + 'app.template.html',
-	directives: [AppHeader, ROUTER_DIRECTIVES, RouterLink]
+	directives: [AppHeader, ROUTER_DIRECTIVES]
 })
 
 export class App {

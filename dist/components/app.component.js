@@ -19,7 +19,7 @@ var App = (function () {
         core_1.Component({
             selector: 'books-app',
             templateUrl: settings_1._settings.buildPath + 'app.template.html',
-            directives: [header_component_1.AppHeader, router_1.ROUTER_DIRECTIVES, router_1.RouterLink]
+            directives: [header_component_1.AppHeader, router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
     ], App);
