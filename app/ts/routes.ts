@@ -1,14 +1,17 @@
-import {provideRouter, RouterConfig} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-import {BooksListing} from './components/books-listing.component';
-import {BookDetail} from './components/book-detail.component';
+import { BooksListing } from './components/books-listing.component';
+import { BookDetail } from './components/book-detail.component';
 
-export const routes:RouterConfig = [
+export const routes: Routes = [
 	{path: 'bookslisting', component: BooksListing},
 	{path: 'bookdetail/:id', component: BookDetail},
-	{path: '', redirectTo: 'bookslisting', terminal: true}
+	{ path: '', redirectTo: '/bookslisting', pathMatch: 'full' }
 ];
 
-export const APP_ROUTER_PROVIDERS = [
-    provideRouter(routes)
-];
+@NgModule({
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule]
+})
+export class AppRoutingModule { }

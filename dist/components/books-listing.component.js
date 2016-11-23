@@ -9,8 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-var collapse_title_directive_1 = require('../directives/collapse-title.directive');
 var settings_1 = require('../helpers/settings');
 var api_service_1 = require('../services/api.service');
 var localStorage_service_1 = require('../services/localStorage.service');
@@ -109,11 +107,11 @@ var BooksListing = (function () {
     };
     BooksListing = __decorate([
         core_1.Component({
-            providers: [http_1.HTTP_PROVIDERS, api_service_1.api, localStorage_service_1.LocalStorage, utils_service_1.Utils],
-            directives: [collapse_title_directive_1.CollapseTitle],
+            // providers: [HTTP_PROVIDERS, api, LocalStorage, Utils],
+            // directives: [CollapseTitle],
             templateUrl: settings_1._settings.buildPath + 'booksListing.template.html'
         }), 
-        __metadata('design:paramtypes', [api_service_1.api, localStorage_service_1.LocalStorage, utils_service_1.Utils])
+        __metadata('design:paramtypes', [api_service_1.Api, localStorage_service_1.LocalStorage, utils_service_1.Utils])
     ], BooksListing);
     return BooksListing;
 }());

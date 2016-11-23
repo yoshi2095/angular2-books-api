@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, ROUTER_DIRECTIVES} from '@angular/router';
+import {Router} from '@angular/router';
 
 import { _settings } from '../helpers/settings';
 
 @Component({
 	selector: 'collapse-title, [collapse-title]',
 	inputs: ['imageLinks', 'volumeInfo', 'saleInfo', 'bookId'],
-	directives: [ROUTER_DIRECTIVES],
+	// directives: [ROUTER_DIRECTIVES],
 	templateUrl: _settings.buildPath + '/directives/collapse-title.template.html'
 })
 

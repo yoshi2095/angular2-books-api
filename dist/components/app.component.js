@@ -9,8 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var header_component_1 = require('./header.component');
 var settings_1 = require('../helpers/settings');
 var App = (function () {
     function App() {
@@ -19,7 +17,6 @@ var App = (function () {
         core_1.Component({
             selector: 'books-app',
             templateUrl: settings_1._settings.buildPath + 'app.template.html',
-            directives: [header_component_1.AppHeader, router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
     ], App);

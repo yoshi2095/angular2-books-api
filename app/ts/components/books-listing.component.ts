@@ -1,17 +1,17 @@
 import {Component} from '@angular/core';
-import {Http, HTTP_PROVIDERS} from '@angular/http'
+import {Http} from '@angular/http'
 
 import {modelInterface} from '../helpers/app-interfaces'
 import {CollapseTitle} from '../directives/collapse-title.directive'
 
 import {_settings} from '../helpers/settings'
-import {api} from '../services/api.service'
+import {Api} from '../services/api.service'
 import {LocalStorage} from '../services/localStorage.service'
 import {Utils} from '../services/utils.service'
 
 @Component({
-	providers: [HTTP_PROVIDERS, api, LocalStorage, Utils],
-	directives: [CollapseTitle],
+	// providers: [HTTP_PROVIDERS, api, LocalStorage, Utils],
+	// directives: [CollapseTitle],
 	templateUrl: _settings.buildPath + 'booksListing.template.html'
 })
 
@@ -36,7 +36,7 @@ export class BooksListing {
 			'sortValue': '+saleInfo.listPrice.amount'
 		}]
 
-	constructor(private api: api, private LS: LocalStorage, private utils: Utils) {
+	constructor(private api: Api, private LS: LocalStorage, private utils: Utils) {
 		this.checkLSForData();
 	}
 

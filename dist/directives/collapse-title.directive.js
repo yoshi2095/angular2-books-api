@@ -26,7 +26,7 @@ var CollapseTitle = (function () {
         core_1.Component({
             selector: 'collapse-title, [collapse-title]',
             inputs: ['imageLinks', 'volumeInfo', 'saleInfo', 'bookId'],
-            directives: [router_1.ROUTER_DIRECTIVES],
+            // directives: [ROUTER_DIRECTIVES],
             templateUrl: settings_1._settings.buildPath + '/directives/collapse-title.template.html'
         }), 
         __metadata('design:paramtypes', [router_1.Router])

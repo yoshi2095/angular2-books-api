@@ -10,21 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-var api = (function () {
-    function api(http) {
+var Api = (function () {
+    function Api(http) {
         this.http = http;
     }
-    api.prototype.getData = function (url) {
+    Api.prototype.getData = function (url) {
         return this.http.get(url).map(function (response) {
             return response.json();
         });
     };
-    api = __decorate([
+    Api = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], api);
-    return api;
+    ], Api);
+    return Api;
 }());
-exports.api = api;
+exports.Api = Api;
 
 //# sourceMappingURL=api.service.js.map

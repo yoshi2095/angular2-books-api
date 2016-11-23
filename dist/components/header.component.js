@@ -83,7 +83,6 @@ var AppHeader = (function () {
     AppHeader = __decorate([
         core_1.Component({
             selector: 'app-header',
-            directives: [],
             providers: [localStorage_service_1.LocalStorage, utils_service_1.Utils],
             templateUrl: settings_1._settings.buildPath + 'header.template.html'
         }), 

@@ -8,7 +8,6 @@ import {Utils} from '../services/utils.service'
 
 @Component({
 	selector: 'app-header',
-	directives: [],
 	providers: [LocalStorage, Utils],
 	templateUrl: _settings.buildPath + 'header.template.html'
 })
