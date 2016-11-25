@@ -1,7 +1,7 @@
 <div class="custom-container">
 	<div class="col-xs-7">
-		<form #booksSearch="ngForm">
-			<input type="text" class="form-control" required [(ngModel)]="model.searchQuery" ngControl="searchQuery" #searchQuery="ngForm" placeholder="Book or book type you would like to search..." (keyup)="searchBooks($event)" />
+		<form #booksSearch="ngModel">
+			<input type="text" class="form-control" required [(ngModel)]="model.searchQuery" action="searchQuery" #searchQuery="ngModel" placeholder="Book or book type you would like to search..." (keyup)="searchBooks($event)" />
 			<div *ngIf="inputError" class="alert alert-danger">
 				Please type 3 or more characters
 			</div>

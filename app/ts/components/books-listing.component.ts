@@ -10,8 +10,6 @@ import {LocalStorage} from '../services/localStorage.service'
 import {Utils} from '../services/utils.service'
 
 @Component({
-	// providers: [HTTP_PROVIDERS, api, LocalStorage, Utils],
-	// directives: [CollapseTitle],
 	templateUrl: _settings.buildPath + 'booksListing.template.html'
 })
 
