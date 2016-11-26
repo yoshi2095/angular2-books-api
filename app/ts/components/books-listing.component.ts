@@ -1,13 +1,13 @@
-import {Component} from '@angular/core';
-import {Http} from '@angular/http'
+import { Component } from '@angular/core';
+import { Http } from '@angular/http';
 
-import {modelInterface} from '../helpers/app-interfaces'
-import {CollapseTitle} from '../directives/collapse-title.directive'
+import { searchModelInterface } from '../helpers/search-model-interface';
+import { CollapseTitle } from '../directives/collapse-title.directive';
 
-import {_settings} from '../helpers/settings'
-import {Api} from '../services/api.service'
-import {LocalStorage} from '../services/localStorage.service'
-import {Utils} from '../services/utils.service'
+import { _settings } from '../helpers/settings';
+import { Api } from '../services/api.service';
+import { LocalStorage } from '../services/localStorage.service';
+import { Utils } from '../services/utils.service';
 
 @Component({
 	templateUrl: _settings.buildPath + 'booksListing.template.html'
@@ -15,7 +15,7 @@ import {Utils} from '../services/utils.service'
 
 export class BooksListing {
 	pendingRequest: any;
-	model: modelInterface;
+	model: searchModelInterface;
 
 	booksData: Array<Object> = [];
 

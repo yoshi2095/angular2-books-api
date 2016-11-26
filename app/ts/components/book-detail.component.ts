@@ -1,15 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {Http} from '@angular/http'
-import {Router, ActivatedRoute} from '@angular/router';
+import { Http } from '@angular/http';
+import { Router, ActivatedRoute } from '@angular/router';
 
-import {Links} from '../directives/links.directive'
-import {GenericInfo} from '../directives/generic-info.directive'
-import {Api} from '../services/api.service'
-import { _settings } from '../helpers/settings'
+import { Links } from '../directives/links.directive';
+import { GenericInfo } from '../directives/generic-info.directive';
+import { Api } from '../services/api.service';
+import { _settings } from '../helpers/settings';
 
 @Component({
 	providers: [Api],
-	// directives: [Links, GenericInfo],
 	templateUrl: _settings.buildPath + 'bookDetail.template.html'
 })
 

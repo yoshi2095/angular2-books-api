@@ -1,10 +1,10 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
-import {headerInterface} from '../helpers/app-interfaces'
-import {_settings} from '../helpers/settings'
-import {LocalStorage} from '../services/localStorage.service'
-import {Utils} from '../services/utils.service'
+import { headerInterface } from '../helpers/header-interface';
+import { _settings } from '../helpers/settings';
+import { LocalStorage } from '../services/localStorage.service';
+import { Utils } from '../services/utils.service';
 
 @Component({
 	selector: 'app-header',
