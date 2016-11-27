@@ -32,7 +32,7 @@ var BookDetail = (function () {
     };
     BookDetail = __decorate([
         core_1.Component({
-            providers: [api_service_1.Api],
+            // providers: [Api],
             templateUrl: settings_1._settings.buildPath + 'bookDetail.template.html'
         }), 
         __metadata('design:paramtypes', [api_service_1.Api, router_1.ActivatedRoute, router_1.Router])
