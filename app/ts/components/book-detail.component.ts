@@ -8,7 +8,7 @@ import { Api } from '../services/api.service';
 import { _settings } from '../helpers/settings';
 
 @Component({
-	providers: [Api],
+	// providers: [Api],
 	templateUrl: _settings.buildPath + 'bookDetail.template.html'
 })
 
