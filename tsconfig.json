@@ -5,36 +5,11 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
+    "lib": ["es2015", "dom"],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
-  },
-  "filesGlob": [
-    "app/**/*.ts",
-    "typings/**/*.d.ts",
-    "node_modules/immutable/dist/immutable.d.ts"
-  ],
-  "files": [
-    "app/ts/components/app.component.ts",
-    "app/ts/components/header.component.ts",
-    "app/ts/components/books-listing.component.ts",
-    "app/ts/components/book-detail.component.ts",
-    "app/ts/directives/links.directive.ts",
-    "app/ts/directives/generic-info.directive.ts",
-    "app/ts/directives/collapse-title.directive.ts",
-    "app/ts/services/api.service.ts",
-    "app/ts/services/localStorage.service.ts",
-    "app/ts/services/utils.service.ts",
-    "app/ts/helpers/header-interfaces.ts",
-    "app/ts/helpers/search-model-interface.ts",
-    "app/ts/helpers/settings.ts",
-    "app/ts/routes.ts",
-    "app/ts/app.module.ts",
-    "app/ts/boot.ts"
-  ],
-  "atom": {
-    "rewriteTsconfig": true
   }
 }
