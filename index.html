@@ -1,31 +1,22 @@
+<!DOCTYPE html>
 <html>
-
   <head>
-    <base href="/">
     <title>Google Books API - Angular 2</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="app/css/bootstrap.min.css">
     <link rel="stylesheet" href="app/css/app.css">
-
-    <!-- 1. Load libraries -->
-    <!-- Polyfill(s) for older browsers -->
-    <script src="lib/shim.min.js"></script>
-    <script src="lib/zone.js"></script>
-    <script src="lib/Reflect.js"></script>
-    <script src="lib/system.src.js"></script>
-    <script src="systemjs.config.js"></script>
-
-    <script>
-      System.import('app').catch(function(err){ console.error(err); });
-    </script>
-
   </head>
+ 
   <body>
     <div class="container">
       <books-app></books-app>
     </div>
   </body>
-  <body>
-
+ 
+  <% if (webpackConfig.metadata.ENV === 'development') { %>
+  <!-- Webpack Dev Server -->
+  <script src="http://<%= webpackConfig.metadata.host %>:<%= webpackConfig.metadata.port %>/webpack-dev-server.js"></script>
+  <% } %>
+ 
 </html>

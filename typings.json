@@ -1,0 +1,7 @@
+{
+  "name": "angular-starter",
+  "dependencies": {},
+  "globalDependencies": {
+    "node": "registry:env/node#6.0.0+20161223222858"
+  }
+}
