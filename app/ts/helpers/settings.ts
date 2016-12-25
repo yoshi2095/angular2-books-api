@@ -1,3 +1,3 @@
 export const _settings = {
-	buildPath: 'app/templates/'
+	buildPath: '../../../app/templates/'
 };

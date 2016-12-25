@@ -7,7 +7,8 @@ import { _settings } from '../helpers/settings';
 	selector: 'collapse-title, [collapse-title]',
 	inputs: ['imageLinks', 'volumeInfo', 'saleInfo', 'bookId'],
 	// directives: [ROUTER_DIRECTIVES],
-	templateUrl: _settings.buildPath + '/directives/collapse-title.template.html'
+	// templateUrl: _settings.buildPath + '/directives/collapse-title.template.html'
+	templateUrl: '../../../app/templates/directives/collapse-title.template.html'
 })
 
 export class CollapseTitle {

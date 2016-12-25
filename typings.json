@@ -1,7 +1,6 @@
 {
-  "name": "angular-starter",
-  "dependencies": {},
-  "globalDependencies": {
-    "node": "registry:env/node#6.0.0+20161223222858"
-  }
+	"globalDependencies": {
+		"core-js": "registry:dt/core-js#0.0.0+20160914114559",
+		"node": "registry:dt/node#6.0.0+20161010101523"
+	}
 }

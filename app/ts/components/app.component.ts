@@ -5,7 +5,8 @@ import { _settings } from '../helpers/settings';
 
 @Component({
 	selector: 'books-app',
-	templateUrl: _settings.buildPath + 'app.template.html'
+	// templateUrl: _settings.buildPath + 'app.template.html'
+	templateUrl: '../../../app/templates/app.template.html'
 })
 
 export class App {

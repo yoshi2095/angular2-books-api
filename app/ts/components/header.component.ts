@@ -9,7 +9,9 @@ import { Utils } from '../services/utils.service';
 @Component({
 	selector: 'app-header',
 	providers: [LocalStorage, Utils],
-	templateUrl: _settings.buildPath + 'header.template.html'
+	// templateUrl: _settings.buildPath + 'header.template.html'
+	templateUrl: '../../../app/templates/header.template.html'
+	// template: require('./header.template.html')
 })
 
 export class AppHeader {

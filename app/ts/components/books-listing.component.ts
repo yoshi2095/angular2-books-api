@@ -10,7 +10,8 @@ import { LocalStorage } from '../services/localStorage.service';
 import { Utils } from '../services/utils.service';
 
 @Component({
-	templateUrl: _settings.buildPath + 'booksListing.template.html'
+	// templateUrl: _settings.buildPath + 'booksListing.template.html'
+	templateUrl: '../../../app/templates/booksListing.template.html'
 })
 
 export class BooksListing {

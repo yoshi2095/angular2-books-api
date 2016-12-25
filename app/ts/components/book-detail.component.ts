@@ -9,7 +9,8 @@ import { _settings } from '../helpers/settings';
 
 @Component({
 	// providers: [Api],
-	templateUrl: _settings.buildPath + 'bookDetail.template.html'
+	// templateUrl: _settings.buildPath + 'bookDetail.template.html'
+	templateUrl: '../../../app/templates/bookDetail.template.html'
 })
 
 export class BookDetail implements OnInit, OnDestroy {

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <base href="/">
     <title>Google Books API - Angular 2</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,10 +14,4 @@
       <books-app></books-app>
     </div>
   </body>
- 
-  <% if (webpackConfig.metadata.ENV === 'development') { %>
-  <!-- Webpack Dev Server -->
-  <script src="http://<%= webpackConfig.metadata.host %>:<%= webpackConfig.metadata.port %>/webpack-dev-server.js"></script>
-  <% } %>
- 
 </html>
