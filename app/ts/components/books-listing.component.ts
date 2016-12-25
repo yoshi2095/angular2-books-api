@@ -52,7 +52,7 @@ export class BooksListing {
 			this.utils.log('ls value obtained: ', searchQuery);
 			this.model = {
 				searchQuery: searchQuery,
-				searchLimit: searchLimit,
+				searchLimit: parseInt(searchLimit, 10),
 				sortOrder: sortOrder,
 				localSortKey: localSortKey
 			};
