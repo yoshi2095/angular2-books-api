@@ -14,4 +14,4 @@ npm install
 typings install
 
 
-Run following command to run application - gulp serve
+Run following command to run application - npm start
