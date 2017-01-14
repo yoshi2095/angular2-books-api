@@ -5,12 +5,12 @@ Demo for google books api with Angular 2
 Take checkout of repository and run following commands
 
 On MAC
-sudo npm install
+sudo npm install or yarn
 sudo typings install
 
 
 On Windows
-npm install
+npm install or yarn
 typings install
 
 
