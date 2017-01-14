@@ -15,3 +15,7 @@ typings install
 
 
 Run following command to run application - gulp serve
+
+
+
+Package removed from now - "typings": "^1.0.4"

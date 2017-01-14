@@ -1,15 +1,15 @@
-var gulp = require('gulp'),
+var browserSync = require('browser-sync'),
 	del = require('del'),
-	typescript = require('gulp-typescript'),
-	newer = require('gulp-newer'),
+	gulp = require('gulp'),
 	debug = require('gulp-debug'),
-	tscConfig = require('./tsconfig.json'),
+	newer = require('gulp-newer'),
 	sourcemaps = require('gulp-sourcemaps'),
 	tslint = require('gulp-tslint'),
-	browserSync = require('browser-sync'),
+	typescript = require('gulp-typescript'),
 	runSequence = require('run-sequence'),
-	reload = browserSync.reload,
-	tsconfig = require('tsconfig-glob');
+	tsconfig = require('tsconfig-glob'),
+	tscConfig = require('./tsconfig.json'),
+	reload = browserSync.reload;
 
 // clean the contents of the distribution directory
 gulp.task('clean', function() {
@@ -24,7 +24,7 @@ gulp.task('copy:assets', function() {
 		.pipe(gulp.dest('dist'));
 });
 
-gulp.task('copyNodeModules', function() {
+gulp.task('copy:nodemodules', function() {
 	return gulp.src(['node_modules/@angular/**/*', 'node_modules/rxjs/**/*', 'node_modules/angular2-in-memory-web-api/**/*', '!node_modules/**/*.tlog', '!node_modules/**/*.png', '!node_modules/**/*.jpg', '!node_modules/**/*.md', '!node_modules/**/*.txt', '!node_modules/**/LICENSE', '!node_modules/**/license', '!node_modules/**/*.markdown', '!node_modules/**/example/**/*', '!node_modules/**/examples/**/*', '!node_modules/**/test/**/*', '!node_modules/**/benchmark/**/*', '!node_modules/**/doc/**/*', '!node_modules/**/docs/**/*', '!node_modules/**/testData/**/*', '!node_modules/**/build/Debug/**/*', '!node_modules/**/build/deps/**/*'], {
 			base: 'node_modules',
 		})
@@ -84,7 +84,7 @@ gulp.task('serve', ['build'], function() {
 });
 
 gulp.task('build', function() {
-	runSequence('clean', 'compile', 'copy:libs', 'copy:assets', 'copyNodeModules');
+	runSequence('clean', 'compile', 'copy:libs', 'copy:assets', 'copy:nodemodules');
 });
 
 gulp.task('buildAndReload', ['build'], reload);
