@@ -7,21 +7,12 @@ var browserSync = require('browser-sync'),
 	tslint = require('gulp-tslint'),
 	typescript = require('gulp-typescript'),
 	runSequence = require('run-sequence'),
-	tsconfig = require('tsconfig-glob'),
 	tscConfig = require('./tsconfig.json'),
 	reload = browserSync.reload;
 
 // clean the contents of the distribution directory
 gulp.task('clean', function() {
-	return del('dist/**/*');
-});
-
-// copy static assets - i.e. non TypeScript compiled source
-gulp.task('copy:assets', function() {
-	return gulp.src(['app/**/*', 'index.html', 'systemjs.config.js', '!app/**/*.ts'], {
-			base: './'
-		})
-		.pipe(gulp.dest('dist'));
+	return del(['dist/*.html', 'dist/*.js', 'dist/*.js.map', 'dist/app', 'dist/components', 'dist/directives', 'dist/helpers', 'dist/lib', 'dist/services', '!dist/node_modules/**/*']);
 });
 
 gulp.task('copy:nodemodules', function() {
@@ -33,6 +24,14 @@ gulp.task('copy:nodemodules', function() {
 		}))
 		.pipe(newer('dist/node_modules'))
 		.pipe(gulp.dest('dist/node_modules'));
+});
+
+// copy static assets - i.e. non TypeScript compiled source
+gulp.task('copy:assets', function() {
+	return gulp.src(['app/**/*', 'index.html', 'systemjs.config.js', '!app/**/*.ts'], {
+			base: './'
+		})
+		.pipe(gulp.dest('dist'));
 });
 
 // copy dependencies
@@ -53,7 +52,6 @@ gulp.task('tslint', function() {
 		.pipe(tslint.report('verbose'));
 });
 
-
 // TypeScript compile
 gulp.task('compile', function() {
 	return gulp
@@ -62,14 +60,6 @@ gulp.task('compile', function() {
 		.pipe(typescript(tscConfig.compilerOptions))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('dist'));
-});
-
-// update the tsconfig files based on the glob pattern
-gulp.task('tsconfig-glob', function() {
-	return tsconfig({
-		configPath: '.',
-		indent: 2
-	});
 });
 
 // Run browsersync for development

@@ -12,7 +12,6 @@
     "suppressImplicitAnyIndexErrors": true
   },
   "filesGlob": [
-    "app/**/*.ts",
     "typings/**/*.d.ts",
     "node_modules/immutable/dist/immutable.d.ts"
   ],
