@@ -1,4 +1,5 @@
 var browserSync = require('browser-sync'),
+	concat = require('gulp-concat'),
 	del = require('del'),
 	gulp = require('gulp'),
 	debug = require('gulp-debug'),
@@ -23,9 +24,16 @@ gulp.task('copy:nodemodules', function() {
 		.pipe(gulp.dest('dist/node_modules'));
 });
 
+
 // copy static assets - i.e. non TypeScript compiled source
+gulp.task('copy:css', function() {
+	return gulp.src(['app/css/bootstrap.min.css', 'app/css/app.css'])
+		.pipe(concat('all.css'))
+		.pipe(gulp.dest('dist'));
+});
+
 gulp.task('copy:assets', function() {
-	return gulp.src(['app/**/*', 'index.html', 'systemjs.config.js', '!app/**/*.ts'], {
+	return gulp.src(['app/templates/**/*', 'index.html', 'systemjs.config.js', '!app/**/*.ts'], {
 			base: './'
 		})
 		.pipe(gulp.dest('dist'));
@@ -71,11 +79,11 @@ gulp.task('serve', ['complete-build'], function() {
 });
 
 gulp.task('complete-build', function() {
-	runSequence('clean', 'compile', 'copy:libs', 'copy:assets', 'copy:nodemodules');
+	runSequence('lite-build', 'copy:nodemodules');
 });
 
 gulp.task('lite-build', function() {
-	runSequence('clean', 'compile', 'copy:libs', 'copy:assets');
+	runSequence('clean', 'compile', 'copy:libs', 'copy:css', 'copy:assets');
 });
 
 gulp.task('buildAndReload', ['lite-build'], reload);
