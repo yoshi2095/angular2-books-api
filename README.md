@@ -21,3 +21,6 @@ prod - npm run build
 
 http://tektutorialshub.com/angular-2-with-webpack-tutorial/
 http://blog.sodhanalibrary.com/2016/10/angular2-project-setup-with-webpack-for.html#.WHt6MuVE5jU
+
+https://github.com/shivanshuag/angular2-seed << try this
+https://github.com/AngularClass/angular2-webpack-starter/issues/351
