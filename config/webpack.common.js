@@ -1,9 +1,7 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const path = require('path');
-const rootDir = path.resolve(__dirname, '..');
+var helpers = require('./helpers');
 
 module.exports = {
     entry: {
@@ -13,7 +11,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['', '.js', '.ts']
+        extensions: ['', '.ts', '.js']
     },
 
     module: {
@@ -28,7 +26,12 @@ module.exports = {
             loader: 'file?name=assets/[name].[hash].[ext]'
         }, {
             test: /\.css$/,
-            loaders: ['to-string-loader', 'css-loader']
+            exclude: helpers.root('.', 'app/css'),
+            loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
+        }, {
+            test: /\.css$/,
+            include: helpers.root('.', 'app/css'),
+            loader: 'raw'
         }]
     },
 
@@ -36,6 +39,7 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: ['app', 'vendor', 'polyfills']
         }),
+
         new HtmlWebpackPlugin({
             template: 'index.html'
         })

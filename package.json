@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --inline --progress --port 8080",
-    "postinstall": "typings install"
+    "test": "karma start",
+    "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail"
   },
   "license": "ISC",
   "dependencies": {

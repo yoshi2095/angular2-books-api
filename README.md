@@ -14,4 +14,10 @@ npm install
 typings install
 
 
-Run following command to run application - npm start
+Run following command to run application
+dev - npm start
+prod - npm run build
+
+
+http://tektutorialshub.com/angular-2-with-webpack-tutorial/
+http://blog.sodhanalibrary.com/2016/10/angular2-project-setup-with-webpack-for.html#.WHt6MuVE5jU
