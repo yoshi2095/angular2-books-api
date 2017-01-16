@@ -1,24 +1,24 @@
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var del = require('del');
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var webpackConfig = require('./webpack.config.js');
-
-//copy html and css files
-gulp.task('copy', ['clean'], function() {
-    return gulp.src([
-            'index.html',
-            'app/**/*.html',
-            'app/**/*.css'
-        ])
-        .pipe(gulp.dest('dist'));
-});
+var gulp = require('gulp'),
+    gutil = require('gulp-util'),
+    del = require('del'),
+    webpack = require('webpack'),
+    WebpackDevServer = require('webpack-dev-server'),
+    webpackConfig = require('./webpack.config.js');
 
 //clean the dist folder
 gulp.task('clean', function(cb) {
     return del(['dist/**/*']);
     cb();
+});
+
+//copy html and css files
+gulp.task('copy', ['clean'], function() {
+    return gulp.src([
+            'app/index.html',
+            'app/**/*.html',
+            'app/**/*.css'
+        ])
+        .pipe(gulp.dest('dist'));
 });
 
 // build javascript for deployment using webpack
@@ -45,8 +45,6 @@ gulp.task('build', ['clean'], function(callback) {
     });
 });
 
-gulp.task('deploy', ['clean', 'copy', 'build']);
-
 // modify some webpack config options
 var myDevConfig = Object.create(webpackConfig);
 myDevConfig.devtool = "sourcemap";
@@ -65,8 +63,6 @@ gulp.task("build-dev", ['clean'], function(callback) {
         callback();
     });
 });
-
-gulp.task("dev", ["copy", "build-dev"])
 
 //run webpack dev server
 gulp.task("dev-server", function(callback) {
@@ -88,4 +84,6 @@ gulp.task("dev-server", function(callback) {
     });
 });
 
+gulp.task("dev", ["copy", "build-dev"]);
+gulp.task('deploy', ['clean', 'copy', 'build']);
 gulp.task('default', ['dev-server']);
